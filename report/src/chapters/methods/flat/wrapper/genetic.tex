@@ -1,0 +1,43 @@
+\paragraph{Genetic Algorithms}
+\label{par:methods.flat.wrapper.genetic}
+
+% Author: Silvana
+
+(SOURCE!!! basically written down by what Silvana knows from se bachelor thesis...)
+Before explaining how GA can be used for for feature selection, 
+a short introduction into the very basic concept of those algorithms has to be made. As the name implies, 
+genetic algorithms are inspired by the way nature “works” in real life: parents carry specific genetic  information, 
+and a (re-)combination of this information is passed to their kids in order to create “better” offspring from generation to generation. 
+GA's imitate this behaviour by encoding the data they should work on or optimize in so-called chromosomes 
+(which could be for examples vectors of numerical values). 
+One is not limited to using numerical data, but this is a very common approach, 
+as numerical values can be processed easily by the typical routines in a GA. 
+A desired number of chromosomes is initialized at the beginning of the algorithm. 
+They can be created randomly (f.ex by creating vectors with random values) or according to specific rules.
+As the algorithm starts, different operations are applied to create new chromosomes: 
+for example, a new chromosome can be obtained by combining the values of two already existing chromosomes, 
+or by changing random values in an already existing chromosome. 
+
+The resulting new chromosomes are then evaluated according to a fitness function, 
+which basically measures how “good” a chromosome is suited for the underlying problem. 
+The chromosomes then can be ranked, and the best ones are taken again to create new offspring. 
+This procedure is repeated as long until a desired quality/result is achieved.
+
+Just like branch and bound algorithms, GA are generally not suited for big feature spaces, 
+as they try to explore the whole search space until a stopping criterion is met. 
+This takes a lot of computation time when feature spaces are highly dimensional. 
+The strength of GA is that they do not tend to get stuck at local optima 
+(es for example Hill climbing algorithms do), but instead are likely to find global optima.
+
+For feature selection, the chromosomes could correspond to subsets of the total feature set. 
+The values in a chromosome would encode if a feature is selected or not. This can be achieved simply by using binary values: 
+1 indicates that a feature is selected for a possible subset, and 0 indicates that it is not selected. 
+Mutation and recombination operators would modify the chromosomes, 
+and a fitness function would evaluate their quality for the underlying classifier 
+(remember, each chromosome resembles a subset of features).
+
+But one is not limited to binary values [XY] and [BLA] used GA to find optimal kernel setting for SVM. [quote those two papers found from  2006] 
+
+  
+TODO
+Bla bla bla\ldots

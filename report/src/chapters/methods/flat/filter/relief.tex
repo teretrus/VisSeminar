@@ -1,0 +1,21 @@
+\paragraph{Relief}
+\label{par:methods.flat.filter.relief}
+
+% Author: Silvana
+  
+TODO
+Bla bla bla\ldots
+
+The original algorithm (Relief) was presented by Kira and Rendell [1992, src!], and can be used for binary classification problems. Its advantages are fastness and robustness, but the quality of the results depends on the number of  iterations.
+the basic idea is to use a weight vector, which has as many entries as there are features. In each iteration, an instance/variable x is chosen at random and the weights in the weight-vector are then updated based on the following metric: [insert formula here]
+Equation (foo) takes the (euclidean) distance of the current instance x to its near-hit and near miss instances. This is the most similar instance from the same class, and respectively the most similar instance of a different class of the set compared to x. Reformulate this wonderful sentence fromWiki: “Thus the weight of any given feature decreases if it differs from that feature in nearby instances of the same class more than nearby instances of the other class, and increases in the reverse case.”
+After a desired number of iterations, the features whose weights have a value above a certain threshold are chosen for further processing/classification.
+
+ReliefF is a further development of the algorithm made by
+Kononenko et al [src], to extend Relief to multiple-class problems.
+
+ReliefFF ever further development (EPIC naming -_-)
+
+
+ReliefF (+ overview on Relief algorithms):
+http://lkm.fri.uni-lj.si/rmarko/papers/robnik03-mlj.pdf 

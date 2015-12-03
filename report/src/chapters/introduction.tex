@@ -1,3 +1,18 @@
 \section{Introduction}
 \label{sec:introduction}
 
+% Author: Silvana
+
+Thanks to the technological development of the recent years, nowadays it is possible to collect and store a vast amount of data. But these possibilities also led to new challenges when evaluating those datasets. Not only the sample size, also the dimensionality of data has increased, which results in the so called “curse of dimensionality”: The complexity of the analysis (regarding memory consumption and evaluation time) grows exponentially with increasing dimensionality of the samples. 
+
+To conquer this problem, various techniques which try to reduce the dimensionality were developed in the field of machine learning. Two categories can be distinguished: feature extraction and feature selection. 
+Feature extraction tries to reduce dimensionality by combining features, thus creating “new” features with a lower dimensionality. Feature selection on the other hand tries to select a few, important features out of the given set.
+
+The features produced or chosen by either one of those methods are then used for classification and analysis of the sampled data. The application of this techniques in real-life are broad and range from text analysis in social media to the analysis of genomes in bioinformatics.
+
+The goal of this paper is to set a focus on feature selection and present some of the most common techniques and state-of-the art.
+
+The main strategy of feature selection is to chose only a small subset of the available features for analyzing the data, which leads to higher accuracy, lower computational cost and better interpretability of the results.[1] Such a subset would optimally consist only of relevant features. What properties define a relevant feature depends on the application, but generally speaking, the “optimal” feature should should be discriminant when performing classification (f.ex.: by looking at a certain feature, a clear classification of the current datapoint should be possible.)
+and should not be redundant (f.ex., two different features should not provide the same kind of information). Possible criteria for evaluating the relevance of features will be covered in more detail in section FOO.
+
+(evtl add: overfitting as another drawback of bg feature sets, see 2001, Feature selection with NN, p1333)

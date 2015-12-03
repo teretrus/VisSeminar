@@ -1,0 +1,26 @@
+\paragraph{Forward Selection/bachward elimination}
+\label{par:methods.flat.wrapper.forward_selection}
+
+% Author: Silvana
+In practice, two methods which are often used for large datasets are sequential forward selection (SFS) and sequential backward elimination (SBE). 
+When doing forward selection, no feature is selected in the beginning. 
+More and more features are then added to the subset of selected features sequentially, 
+until the desired feature set is achieved. SBE works exactly the other way round, 
+starting with the full set of features first and sequentially deleting features, 
+until a smaller subset of sufficient quality is gained. 
+Both methods have drawbacks: 
+Either features cannot be eliminated once they have been selected (SFS), or they cannot be selected again if they have been discarded once (SBE).
+
+Mao [2] proposes orthogonal forward selection and backward elimination algorithms to overcome this problem. 
+Instead of simply selecting features in a sequential way, they are first mapped onto an orthogonal space. 
+This mapping decorrelates the features, so they can be evaluated and selected individually. 
+After the transformation, one can link back the meaningless (sic?! WTF? why the meaningless ones?) features to the (same number of variables) in the original measurement space. 
+works smtgh like: orthogonalize because features are de-correlated in this space, then select feature that causes may class seperability (SFS). 
+SBS): arrange features in a matrix, lest important ones in the last rows, delete them amd re-arrange them until relevant features remain.
+
+Using a mapping to orthogonal space proved to be very effective for features with high correlation. 
+If the correlation between candidate features is only trivial, orthogonal
+transforms don't improve the results compared to existing sequential methods.
+
+TODO
+Bla bla bla\ldots

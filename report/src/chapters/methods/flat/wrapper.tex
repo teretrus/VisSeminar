@@ -1,0 +1,53 @@
+\subsubsection{Wrapper Methods}
+\label{sec:methods.flat.wrapper}
+
+% Author: Silvana
+
+In contrast to filter methods, wrapper methods are dependent on the classifier used after the feature selection. 
+The feature-set is selected so that it fits the biases and heuristics of the classifier as good as possible. 
+
+This is achieved by sequentially applying two steps: 
+
+\begin{itemize}
+  \item A search routine selects a set of features 
+  \item The selected subset is evaluated with the desired classifier
+\end{itemize}
+
+Those two steps are repeated until a desired quality of the subset is reached. 
+The first step will produce a set of features, which then are used by the classifier. 
+The feature set with the best results (e.g. highest estimation values) will
+then be used for the actual classification task.
+
+
+TODO: Das hier ohne Doppelpunkt ausformulieren
+
+Search routine:
+The size of the search space depends on the number of features: The more there are, the more possible subsets of them exist. 
+As real-life applications normally involve a lot of features, the search can not be done randomly, but has to follow a certain strategy, too. 
+Typical algorithms used are hill-climbing, best-first, or greedy-search (forward selection/backward elimination paper!), to name a few.
+
+Evaluation:
+The quality of the selected subset can be evaluated by different methods, using a simple validation set or cross-validation are two common methods.
+
+
+The major drawback of this approach is the computation time needed, as the subsequent search- and evaluation steps are computationally expensive. 
+Compared to filter methods, better performance and more accurate estimates are achieved for the chosen classifier.
+Also, as the selected subset is dependent on the classifier, it cannot be used with any classifier, as the results will be biased.
+
+
+Wrapper methods were already introduced shortly in chapter FOO. 
+As stated, they consist of two different steps, a search- and a evaluation-step, 
+which are applied sequentially in each iteration until a stopping criterion (usually sufficient quality in classification) is met.
+
+This chapter will go more in-depth about different search-techniques, before discussing validation-strategies shortly. 
+
+
+TODO
+Bla bla bla\ldots
+
+\input{chapters/methods/flat/wrapper/hill_climbing}
+\input{chapters/methods/flat/wrapper/best_fit}
+\input{chapters/methods/flat/wrapper/branch_and_bound}
+\input{chapters/methods/flat/wrapper/genetic}
+\input{chapters/methods/flat/wrapper/forward_selection}
+\input{chapters/methods/flat/wrapper/greedy}
