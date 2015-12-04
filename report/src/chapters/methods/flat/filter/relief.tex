@@ -6,15 +6,16 @@ The original algorithm (Relief) was presented by Kira and Rendell \cite{Kira:199
 The basic idea is to use a weight vector, which has as many entries as there are features. In each iteration, an instance/variable x is chosen at random. Then the near-hit and near-miss instance of the remaining set in relation to x are selected: This is the most similar instance from the same class as x, and respectively the most similar instance of the different class. The euclidean distance between x and the near-hit and near-miss is calculated to determine if a feature is relevant or not.  
 
 Intuitively, if a feature is relevant, the near-hits should be closer than the near-misses on average, while for irrelevant features, near-hits and near-misses are independent from each other. 
-For each feature $f_i$, the corresponding weight $w_i$ in the weight-vector is updated dependent on those distances by applying equation FOO:
+For each feature $f_i$, the corresponding weight $w_i$ in the weight-vector is updated dependent on those distances by applying equation \ref{relief}:
 
 \begin{equation}
+\label{relief}
 w_i = - (x_i - nearhit)^2  + (x_i - nearmiss)^2
 \end{equation}
 
 Relevant features thus score values larger than zero, while irrelevant features become zero or negative. After a desired number of iterations, the features whose weights have a value above a certain threshold are chosen for the classification or further processing.
 
-The original algorithm was further developed by Kononenko et al. ReliefF \cite{Kononenko:1997} is extension so that the algorithm is able to handle incomplete data and multiple-class problems. 
+The original algorithm was further developed by \cite{Kononenko:97}. ReliefF  is extension so that the algorithm is able to handle incomplete data and multiple-class problems. 
 RRELIEFF (Regressional ReliefF) \cite{Robnik-Sikonja:97} adapts the algorithm to handle also linear regression problems.
 
 The family of Relief-algorithms and eventual adaptations have successfully been used on feature selection problems in the recent years. Moore used an adaptation called Tuned ReliefF (TuRF) for genetic analysis \cite{Moore:07}, where the worst features are removed systematically in each iteration. By removing a fixed number of features in each iteration, the accuracy of weight-estimation is increasing compared to the results of the original ReliefF algorithm. Eppstein and Haake \cite{Eppstein:08} criticize that for truly genome-wide association analysis, where a huge number of features is used (up to hundreds of thousands), all the proposed methods don't scale well and the estimated weights become basically random values. Very large scale ReliefF (VLSReliefF) tries to overcome this limitation by simply applying Relief on subsets of the features, and then combining the results to gain the weights for all features. This process can be paralellized on the GPU to speed it up \cite{} (http://worldcomp-proceedings.com/proc/p2015/PDP2993.pdf)
