@@ -2,6 +2,5 @@
 \label{par:methods.flat.wrapper.hill_climbing}
 
 % Author: Silvana
-  
-TODO
-Bla bla bla\ldots
+
+Hill climbing, sometimes also referred to as "greedy search" or "steepest ascend", is probably the simplest search technique that can be applied. Starting with no features at all, an evaluation function  rates the available features and adds the most relevant one to the subset. Then the procedure is repeated, each time adding the most relevant feature of the remaining set to the subset. As soon as the influence of an added feature does not improve the overall quality of the set significantly, the search is stopped. The problem with hill climbing is that it gets stuck in local maxima easily, and fails in finding a globally optimal solution. \cite{Kohavi:97}
