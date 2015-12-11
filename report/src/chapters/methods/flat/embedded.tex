@@ -2,28 +2,27 @@
 \label{sec:methods.flat.embedded}
 
  % Author: Flo
-
-TODO
-Bla bla bla\ldots
-
-http://crpit.com/confpapers/CRPITV113Huda.pdf 
-
-As both filter and wrapper methods have different strengths and weaknesses, 
-it seems only natural that research tried to combine both ideas to create so-called embedded methods, 
-which are basically a hybrid of the former two. 
-The strategy is to involve the classifier and its properties (like wrapper methods) while selection the features, 
-and being computationally efficient at the same time (like filter methods).
-
-Three types:
+ 
+Embeddd Methods are an approach to combine the computational efficiency of
+Filter Methods with the quality of Wrapper Methods.
+By addressing the characteristics of the classifier, Embedded Methods select
+features that are more suiting for classification than Filter Methods. At the
+same time, they are not as computational expensive as Wrapper Methods.
+  
+Embedded Methods can roughly been characterized into three categories:
 
 \begin{itemize}
-  \item Linear Classifiers (Pruning methods, SVM, logistic regression)
-  \item ID3 / C4.5 with build-in mechanism (WTF?) 
-  \item Regularisation models
+  \item Pruning Methods
+  \item Built-in Methods
+  \item Regression Methods
 \end{itemize}
 
-Regularisation models idea: fit the moddel, but try to have as many weightsas
-possible small or close to 0, so we can eliminate features with small/zero weights
+ 
+\input{chapters/methods/flat/embedded/pruning}
+\input{chapters/methods/flat/embedded/svm}
 
+\input{chapters/methods/flat/embedded/builtin}
+\input{chapters/methods/flat/embedded/c4_5}
+\input{chapters/methods/flat/embedded/id3}
 
-TODO:  more on embedded methods
+\input{chapters/methods/flat/embedded/regression}

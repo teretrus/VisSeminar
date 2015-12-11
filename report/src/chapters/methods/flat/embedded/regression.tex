@@ -1,0 +1,25 @@
+\paragraph{Regression Methods}
+\label{par:methods.flat.embedded.regression}
+
+% Author: Flo
+
+try to analytically force coefficients to be small while
+still fitting the model. After this computation, coefficients close to $0$ can
+be eliminated.
+
+In general, to classify a feature-vector, Regression Methods minimize an
+expression where an error term adds up with a penalty (\cite{Tang:04}). Since
+the error term can usually be controlled by the user (typical error terms, such as squared
+distance can be used), Regression Methods differ in the penalty-term.
+
+Some examples of Regression Methods are:
+
+\begin{itemize}
+  \item Lasso Regularization (\cite{Tibshirani:96})
+  \item Adaptive lasso (\cite{Zou:06})
+  \item Bridge Regularization (\cite{Knight:00},\cite{Huang:08})
+  \item Elastic Net Regularization (\cite{Zou:05})
+\end{itemize}
+
+The Lasso Regularization is the basic algorithm, that is used by other
+Regression Methods.

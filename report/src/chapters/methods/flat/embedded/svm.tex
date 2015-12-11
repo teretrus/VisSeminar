@@ -1,10 +1,21 @@
-\paragraph{Support Vector Machines}
+\paragraph{Recursive Feature Elimination using Support Vector Machines}
 \label{par:methods.flat.embedded.svm}
 
 % Author: Flo
 
-SVM: feature selection USING SVMs (and not *for SVMs) -->Microsoft paper,
-separates features by SVM hyperplane and descard features with low weights… bla
-  
-TODO
-Bla bla bla\ldots
+is a Pruning Method, that uses SVM(Support Vector Machines) to select the most
+contributing features.
+
+Since SVM-classifiers are basically a hyperplane that separates data in a
+high-dimensional space into positive and negative matches, the classification
+can be reduced to a simple inside-outside test with the plane, wich is basically
+a dot-product with the corresponding hesse-normal-form of the plane.
+
+This method now eliminates all components of the plane, in which the
+hesse-normal-form of the plane is close to $0$, and therefore removing
+less- and non-contributing features \cite{Brank:02}.
+
+As SVMs mostly work in a space which has a higher dimensionality than the
+original feature-space, the remaining features of the high dimensional space
+need to be mapped to features of the low dimensional space to effectively
+eliminate features.
