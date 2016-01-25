@@ -1,0 +1,70 @@
+Slide 
+Titel
+
+Slide 
+Motivation:
+Multimedia Data, quantify 
+Many features, select relevant ones
+Bild: http://gael-varoquaux.info/science/ica_vs_pca.html
+
+Slide
+Motivation:
+Remove redundancy:
+Expressive representation of data
+More accurate classification  
+Speed up computation time
+
+Slide 
+Feature Selection:
+No new features
+Select relevant subset
+Discriminating features
+
+Slide
+Feature types:
+Flat: Independent
+Structured: of certain structure
+
+Slide 
+Flat features
+Outperformed by structured feature methods
+Many features with no relation to each other
+select representative subset
+No information about structure needed
+
+Slide
+Methods  for flat features:
+Filter  
+Wrapper
+Embedded
+
+(evtl 1-2 bsp pro art, fortführendes zeug?) 
+ 
+
+Slide
+Structured features
+Outperform flat feature methods
+Certain assumption about structure
+(Bsp tree-structure - evtl sogar was konkretes, f.ex. alter/jahre/monate ?!)
+
+Slide
+Methods for structured:
+Group 
+Tree
+Graph
+
+(evtl 1-2 bsp pro art, fortführendes zeug?) 
+
+Slide 
+Applications:
+Classification/ pattern recognition
+Data representation
+Prediction
+
+Slide
+Questions ?
+
+Slide:
+Literature
+
+
