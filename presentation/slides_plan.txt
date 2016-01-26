@@ -1,13 +1,13 @@
 Slide 
 Titel
 
-Slide 
+Slide F
 Motivation:
 Multimedia Data, quantify 
 Many features, select relevant ones
 Bild: http://gael-varoquaux.info/science/ica_vs_pca.html
 
-Slide
+Slide F
 Motivation:
 Remove redundancy:
 Expressive representation of data
@@ -41,13 +41,13 @@ Embedded
 (evtl 1-2 bsp pro art, fortführendes zeug?) 
  
 
-Slide
+Slide F
 Structured features
 Outperform flat feature methods
 Certain assumption about structure
 (Bsp tree-structure - evtl sogar was konkretes, f.ex. alter/jahre/monate ?!)
 
-Slide
+Slide F
 Methods for structured:
 Group 
 Tree
@@ -55,16 +55,16 @@ Graph
 
 (evtl 1-2 bsp pro art, fortführendes zeug?) 
 
-Slide 
+Slide F
 Applications:
 Classification/ pattern recognition
 Data representation
 Prediction
 
-Slide
+Slide F
 Questions ?
 
-Slide:
+Slide F
 Literature
 
 
