@@ -4,19 +4,23 @@
 % Author: Silvana
 
 As the name suggests, filter methods try to filter out relevant features from
-not-relevant ones. 
-This is done by considering only the actual data set, 
-the properties of the classifier which will be used afterwards are ignored.
+non-relevant ones. This is done by considering only the data set itself, while
+the properties of the classifier used afterward are ignored.
  
-Thus, filter methods are independent of the classification algorithm: Any
-classifier can be used on the filtered features, 
-which allows to try out different algorithms on the feature set.
- 
-This can be seen as an advantage, but on the other side, 
-complete independency can also have its drawbacks. 
-As characteristics of the specific classifiers are not considered, 
-it is not clear which classifier works best with the selected subset. 
-Thus the selected subset does not guarantee optimal performance of the classifier.
+This makes filter methods computationally efficient and somewhat flexible, 
+as any classifier can be used on the filtered features.  
+
+But this independence has also its drawbacks. As the characteristics of the 
+specific classifiers are not considered, it is not known which one works 
+best with the selected subset. Thus the selected subset does not guarantee optimal 
+performance of the classifier.
+
+Filter methods perform two phases sequentially: First, they rank the features according 
+to a certain metric. The features with the highest rankings are then chosen to train the
+classifier. 
+
+The following chapters will present some popular filter methods and the metrics they use
+for ranking features.
 
 \input{chapters/methods/flat/filter/fisher_score}
 \input{chapters/methods/flat/filter/information_gain}

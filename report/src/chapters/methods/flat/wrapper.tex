@@ -3,41 +3,53 @@
 
 % Author: Silvana
 
-In contrast to filter methods, wrapper methods are dependent on the classifier used after the feature selection. 
+In contrast to filter methods, wrapper methods consider the properties of the classifier which will be used for classification.
 The feature-set is selected so that it fits the biases and heuristics of the classifier as good as possible. 
 
-This is achieved by sequentially applying two steps: 
+Wrapper methods basically perform the following two steps iteratively: 
 
 \begin{itemize}
-  \item A search routine selects a set of features 
-  \item The selected subset is evaluated with the desired classifier
+  \item Search: A search routine selects a set of features 
+  \item Evaluation: The selected subset is evaluated with the desired classifier
 \end{itemize}
 
-When choosing a search routine, one should take the structure of the search space into account.
-Especially its size plays a crucial role, as it grows exponentially with increasing  the number of features. 
-(The more features there are, the more possible subsets can be created.) 
-As real-life applications can involve thousands of features, the search can not be done randomly, 
-but has to follow a certain strategy. 
-Typical algorithms used are hill-climbing, best-first, or greedy-search, to name a few.
+The search and evaluation steps are repeated until a stopping criterion is met, for example when a desired quality of classification is reached, 
+or until a maximum number of iterations was performed. The subset which performed best is selected to train the actual classifier,
+and normally, another evaluation with an independent testing set is done before actually using it for classification.
+(See figure ~\ref{fig:methods.flat.wrapper.diagramm}) 
 
-When a potential subset is found, its suitability for the desired classifier has to be evaluated. 
+\begin{figure}[!ht]
+  \centering 
+  \includegraphics[width=0.8\textwidth]{chapters/methods/flat/wrapper_diagramm}
+  \caption{Reprinted from \cite{Tang:04}. Basic scheme of a wrapper method. Using a training set, search and evaluation steps are performed iteratively.
+	The search-algorithm provides potential feature-subsets which are evaluated by actually training the classifier. The quality is either heuristically estimated
+	or evaluated by cross validation. After a stopping criterion is met, the actual classifier is trained and evaluated with an independent testing set again before
+	being used for the actual classification task.
+  .}
+  \label{fig:methods.flat.wrapper.diagramm}
+\end{figure}
+
+When choosing a search routine, the structure and size of the search space should be taken into account. As the feature space in the majority of 
+applications is high dimensional, it is not possible to enumerate all possible feature subsets. Greedy algorithms are a popular choice,
+but tend to get stuck in local optima when exploring big search spaces. in contrary, genetic algorithms are more complex, but are more likely
+to explore the search space thoroughly and find a global optimum.
+
+When a potential subset is found, its performance for the desired classifier has to be evaluated. 
 This can be done for example by simply using a validation set, or by performing cross-validation.
 
-The search and evaluation steps are repeated until a desired quality of the subset is reached. 
-The first step will produce a set of features, which then are used by the classifier. 
-The feature set with the best results (e.g. highest estimation values) will
-then be used for the actual classification task.
+The major drawback of wrapper methods is the computation time needed, as the subsequent search- and evaluation steps are computationally expensive: 
+Every time a potential feature subset is selected, the classifier has actually to be trained with a training set and evaluated (for example by performing
+cross validation, or using accuracy estimation.\cite{Kohavi:97}) Because the finally selected subset is dependent on the classification algorithm, 
+it will eventually produce biased results when being used with an arbitrary classifier. 
 
+Compared to filter methods, wrapper methods have the big advantage of selecting feature subsets which normally produce more accurate classification results.
+Their better performance thus justifies the long computation time.
 
-The major drawback of this approach is the computation time needed, as the subsequent search- and evaluation steps are computationally expensive. 
-Compared to filter methods, better performance and more accurate estimates are achieved for the chosen classifier.
-Also, as the selected subset is dependent on the classifier, it cannot be used with any classifier, as the results will be biased.
+This next chapters will go more in-depth about the different search-techniques. First, the general strategies forward selection and backwards elimination 
+are introduced, then search by greedy algorithms and genetic algorithms are explained in more detail.
 
-This chapter will go more in-depth about different search-techniques, before discussing validation-strategies shortly. 
-
-
+\input{chapters/methods/flat/wrapper/forward_selection}
 \input{chapters/methods/flat/wrapper/hill_climbing}
-\input{chapters/methods/flat/wrapper/best_first}
+%\input{chapters/methods/flat/wrapper/best_first} --Only one sentence and mentioned with hill climbing
 \input{chapters/methods/flat/wrapper/branch_and_bound}
 \input{chapters/methods/flat/wrapper/genetic}
-\input{chapters/methods/flat/wrapper/forward_selection}

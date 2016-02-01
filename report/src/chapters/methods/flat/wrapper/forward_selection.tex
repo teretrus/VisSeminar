@@ -2,27 +2,32 @@
 \label{par:methods.flat.wrapper.forward_selection}
 
 % Author: Silvana
-In practice, two methods which are often used for large data sets are sequential forward selection (SFS) and sequential backward elimination (SBE).
+When using a greedy algorithm in the search-step of a wrapper algorithm, two strategies can be followed when selecting the features:
+sequential forward selection (SFS) and sequential backward elimination (SBE).
  
-Both  technique work  iteratively. Forward selection starts with an empty set, where no feature is selected in the beginning. 
-Sequentially, one  feature after the other is added to the subset, so that the new subset maximizes the quality of  the  subset,
-which is measured by some criterion function J. This is done until the set has reached a desired size. SBE works exactly the other way round, 
-starting with the full set of features first and sequentially deleting features, until a smaller subset of sufficient quality is gained. 
+SFS starts with an empty feature set, and adds one feature in each iteration, aiming to create a better subset in each iteration.
+(The evaluation step is oftern done by cross validation, as mentioned in the previous chapter.) 
+SBE works the other way round: in the first iteration, the full set of features is used and evaluated. Features are then deleted sequentially, 
+until a smaller subset of sufficient quality is gained. 
 
-Both methods have a major drawback: Either features cannot be eliminated once they have been selected (SFS), 
-or they cannot be selected again if they have been discarded once (SBE). The assumption, that the best five selected features  must contain a 
-subset of the best four selected features does not hold in practice. \cite{Nakariyakul:08}
+In practice, forward selection is used more often, as it is computationally more efficient to train the classifier often with smaller subsets 
+in the beginning, than performing many trainings with big feature sets.
+
+Both methods have a major drawback: Either features cannot be eliminated once they have been selected (SFS), or they cannot be selected again 
+if they have been discarded once (SBE). For example, if ten features are selected and perform better compared to all the previous subsets,
+it is still possible that one feature could be replaced by one which performs even better in combination with the other nine. 
+In other words: the assumption, that the best $x$ selected features must contain a subset of the best $x-1$ selected features does not hold in practice.
+\cite{Nakariyakul:08}
 
 \cite{Pudil:94} proposes Sequential forward floating selection as improvement (and, respectively, Selective backward floating elimination). 
-A backtracking step is implemented after each sequential addition or deletion, which tries to find eventually better subsets. Both methods 
+A backtracking step is implemented after each sequential addition or deletion, and tries to find eventually better subsets. Both methods 
 show admissible computation-time for small- or medium scaled problems, and perform better than other sequential methods on a variety of
 problems. However, it should be empathized that they do not always perform better than other methods, but at least "good enough" on the 
-majority of problems. For very big datasets, they are outperformed by genetic algorithms. \cite{Kudo:00}   
+majority of problems. For very big datasets, they are outperformed by genetic algorithms.\cite{Kudo:00}   
 
 \cite{Mao:04} proposes \textit{orthogonal} forward selection and backward elimination to overcome problems that occur with SFS and SBE. 
 Instead of simply selecting features in a sequential way, they are first mapped to an orthogonal space. 
 This mapping decorrelates the features, so they can be evaluated and selected individually. 
 After the selection, the features are linked back to the same number of variables in the original measurement space.
 Using a mapping to orthogonal space proved to be very effective for features with high correlation. 
-If the correlation between candidate features is only trivial, orthogonal
-transforms don't improve the results compared to existing sequential methods.
+If the correlation between candidate features is only trivial, orthogonal transforms don't improve the results compared to existing sequential methods.

@@ -3,40 +3,35 @@
 
 % Author: Silvana
 
-Before explaining how GA can be used for for feature selection, a short introduction into the very basic concept of those algorithms has to be made. 
-The theoretical groundwork for genetic algorithms was laid by \cite{Holland:92}. As the name implies, 
-genetic algorithms try to imitate the process of natural evolution: parents carry specific genetic information, 
-and a (re-)combination of this genes is passed to their kids in order to create "better" offspring from generation to generation. 
+Before giving examples of genetic algorithms used for for feature selection, a short introduction into the basic concept of those algorithms has to be made. 
+The theoretical groundwork was laid by \cite{Holland:92}. As the name implies, the idea is to imitate the process of natural evolution. Parents carry specific
+genetic information, and a (re-)combination of those genes is passed to their kids in order to create "better" offspring from generation to generation. 
 
-GAs imitate this behavior by encoding the data they should work on or optimize in so-called chromosomes, which thus represent
-a possible solution to the underlying problem. A common choice for the data structure of a chromosome is to use a vector of numerical values, 
-which can be processed easily by the typical routines in a GA. 
+Genetic algorithms imitate this behavior by encoding the data they should work on or optimize in so-called "chromosomes", which thus represent
+a possible solution to the underlying problem. A common choice for the data structure of a chromosome is to use a vector of numerical values.
+For feature selection, chromosomes would represent subsets of the total feature set. The values in a chromosome would encode if a feature is selected or not. 
+This can be achieved for example by using binary values: 1 indicates that a feature is selected for a possible subset, and 0 indicates that it is not selected. 
+(One is not limited to use binary values though. Also, floating-point values in combination with a threshold could be used to indicate if a feature is selected or not)
 
-A desired number of chromosomes is initialized at the beginning of the algorithm, and two different operations are applied to create 
-new "offspring"-chromosomes: crossover (a new chromosome can be obtained by combining the values of two other chromosomes) 
-or mutation (changing random values in an already existing chromosome). 
+In the beginning, a desired number of chromosomes is (randomly) initialized. Then two different operations are applied the them to create 
+new "offspring"-chromosomes: crossover (a new chromosome is obtained by combining the values of two other chromosomes) 
+or mutation (randomly changing some of the numerical values in an already existing chromosome). 
 
-The resulting new chromosomes are then evaluated according to a fitness function, 
-which evaluates the "quality" of the solution a chromosome actually represents. 
-The chromosomes then can be ranked, and the best ones are taken again to create new offspring. 
-This procedure is repeated as long until a desired quality/result is achieved.
+The resulting new chromosomes are evaluated according to a objective function, which determines the "quality" of the solution a chromosome actually represents. 
+The chromosomes which perform best are taken into the next iteration, where crossover and mutation are applied again.
+This procedure is repeated until a solution with a desired quality is achieved.
 
-For feature selection, chromosomes could represent subsets of the total feature set. 
-The values in a chromosome would encode if a feature is selected or not. This can be achieved simply by using binary values: 
-1 indicates that a feature is selected for a possible subset, and 0 indicates that it is not selected. 
+The strength of genetic algorithms is that they do not tend to get stuck at local optima, but instead are likely to find global optima, even in large datasets.
+Making an implementation efficient is the key for a successful use for feature selection, otherwise computation time would be way too long in combination
+with the evaluation step of the underlying wrapper method. 
 
-The strength of GA is that they do not tend to get stuck at local optima, but instead are likely to find global optima, even in large datasets.
-Making an implementation efficient is the key for a successful use of GA for feature selection, as otherwise running time has to be
-fairly long to gain acceptable results. Another problem is the choice of parameters for the algorithm (f.ex, when and how often to perform mutations
-over crossovers), which can influence the outcome to the better or the worse. 
-
-\cite{Oh:04} criticize that GA are weak in fine-tuning local optima, and thus propose a hybrid algorithm for feature selection. While still performing a 
-global search, classical search operations are applied on a local level, which led to significant performance improvements. Still, sequential search approaches
-tended to be faster regarding convergence. Parallel computing was suggested to overcome this problem, as the evaluation of single chromosomes is independent 
-and could be done simultaneously.
+\cite{Oh:04} criticize that genetic algorithms are weak in fine-tuning local optima, and thus propose a hybrid algorithm for feature selection. While still performing 
+a global search with a genetic algorithm, classical search operations are applied on a local level, which led to significant performance improvements. 
+Still, sequential search approaches tended to be faster regarding convergence. Parallel computing was suggested to overcome this problem, as the evaluation of single 
+chromosomes is independent and could be done simultaneously.
 
 \cite{Frohlich:03} designed a very specific algorithm suited exclusively for feature-selection for SVMs. Computation time is reduced by considering already
 existing theoretical error bounds for this kind of classifier, instead of performing cross-validation to estimate the performance
 of a potential feature-subset. The genetic encoding of data is further used to simultaneously optimize parameters needed for the SVM itself.
 This method proved to be faster then RFE (Recursive feature elimination) when the number of features selected for a subset was not known beforehand.
-Furthermore, using error bounds tended less to overfitting of data compared to cross-validation.
+Furthermore, using error bounds avoided overfitting of data compared to cross-validation.
