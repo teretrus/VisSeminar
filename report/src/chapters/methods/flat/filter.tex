@@ -15,6 +15,10 @@ specific classifiers are not considered, it is not known which one works
 best with the selected subset. Thus the selected subset does not guarantee optimal 
 performance of the classifier.
 
+because features are normally evaluated independent of each other, filter methods often
+fail in removing redundant features. Some methods try to overcome this problem by 
+considering possible correlations between features.
+
 Filter methods perform two phases sequentially: First, they rank the features according 
 to a certain metric. The features with the highest rankings are then chosen to train the
 classifier. 
@@ -23,6 +27,7 @@ The following chapters will present some popular filter methods and the metrics 
 for ranking features.
 
 \input{chapters/methods/flat/filter/fisher_score}
-\input{chapters/methods/flat/filter/information_gain}
-\input{chapters/methods/flat/filter/min_redundancy_max_relevance}
+\input{chapters/methods/flat/filter/mutual_information}
+%\input{chapters/methods/flat/filter/information_gain}
+%\input{chapters/methods/flat/filter/min_redundancy_max_relevance} - redone to mutual information based
 \input{chapters/methods/flat/filter/relief}
