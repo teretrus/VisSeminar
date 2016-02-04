@@ -1,7 +1,23 @@
 \subsection{Methods for Streaming Features}
 \label{sec:methods.streaming}
 
-% Author: Silvana
+% Author: Flo
 
+Streaming Feature methods are operating on a growing or infinite feature set. In
+some applications - e.g. secial media - new features come up every minute and
+can or cannot be taken into account. 
+The basic method for streaming features can be described in four steps:
 
-\input{chapters/methods/streaming/gender}
+\begin{itemize}
+  \item Step $1$: Generate a new feature
+  \item Step $2$: Determining whether to select the new feature
+  \item Step $3$: Determining whether to remove an already selected feature
+  \item Step $4$: Continue with Step $1$
+\end{itemize} 
+Modified from \cite{Tang:14}.
+ 
+Some methods that are based on this approach are:
+\begin{itemize}
+  \item The Grafting Algorithm (\cite{perkins2003online})
+  \item The Alpha-investing Algorithm (\cite{zhou2005learning})
+\end{itemize}

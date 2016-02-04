@@ -3,10 +3,19 @@
 
 % Author: Flo - Silvana haut auch was rein
   
-Mutual information  = how much one variable tells us about another- No mutual information measn they are independent, high mutual information means they are dependent on each other - in other words, quantifies how dependent two variables are
+Mutual information is a measurement that measures a variables dependency on
+another variable. No mutual information means they are independent, high mutual
+information means they are dependent on each other.
 
-Different method based on this idea like min redundancy max relevance, information gain
+Some concrete algorithms that are based on this approach are:
+\begin{itemize}
+  \item Min redundancy max relevance
+  \item Information gain
+\end{itemize}
 
-mRmr = combine measures for redundancy and relevance, select features with high relevance and minimize redundancy.
+Min redundancy max relevance combines measures for redundancy and relevance, and
+then selects features with high relevance and minimum redundancy.
 
-infogain = feature given and a corresponding class distribution - measure amount of information regarding class prediction when this feature is given - select features which contriburte high information gein
+Information gain measures the amount of information a feature provides when it
+comes to class prediction. If a feature has good discriminative properties it is
+choosen.
