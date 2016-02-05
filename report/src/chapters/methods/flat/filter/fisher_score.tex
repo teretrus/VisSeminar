@@ -3,9 +3,31 @@
 
 % Author: Silvana hat mal was rein getan
 
-When using Fisher score as a criterion for feature selection, each feature is rated and selected independent of the others by calculating its individual fisher score. The intuition behind fisher score is to select features in a way so that in the resulting "feature space", data samples of the same class are close to each other, while the distances between data points of different classes are as big as possible. Algorithmically, this filter process is relatively easy to perform: after computing the fisher score for each feature, the features with the highest scores are selected. (How many features are chosen and the definition of when a score is high enough is an open choice and dependent on the application design.)
+When using Fisher score as a criterion for feature selection, each feature is
+rated and selected independent of the others by calculating its individual 
+fisher score. The intuition behind fisher score is to select features in a way
+so that in the resulting "feature space", data samples of the same class are 
+close to each other, while the distances between data points of different 
+classes are as big as possible. Algorithmically, this filter process is
+relatively  easy to perform: after computing the fisher score for each feature, 
+the features with the highest scores are selected. (How many features are chosen
+and the definition of when a score is high enough is an open choice and
+dependent on the application design.)
 
-Despite its relative simplicity, this method has a major drawback. As no eventual correlation between the features is considered, it is likely that the optimal subset is not selected. For example, if two features score relatively low individually, they eventually would score high in combination and cause better classification results. For the same reason, fisher score cannot handle redundant features. When selecting two features, it is possible that the same accuracy in classification could be achieved with only one of them.
+Despite its relative simplicity, this method has a major drawback. As no 
+eventual correlation between the features is considered, it is likely that the 
+optimal subset is not selected. For example, if two features score relatively
+low  individually, they eventually would score high in combination and cause
+better  classification results. For the same reason, fisher score cannot handle
+redundant  features. When selecting two features, it is possible that the same
+accuracy in  classification could be achieved with only one of them.
 
-Generalized Fisher score (GFS) is an attempt to overcome this problem. Instead of evaluating one feature after the other individually, several features are considered simultaneously. GFS was tested and compared with other state-of-the art methods, including Fisher score, and proved to perform better in applications like face recognition and number recognition. For face recognition, GFS selected features (in this case pixels) with an asymmetric distribution over the whole face-area, while fisher score selected many pixels which where clustered in non-face areas. \cite{Gu:12}
+Generalized Fisher score (GFS) is an attempt to overcome this problem. Instead
+of evaluating one feature after the other individually, several features are 
+considered simultaneously. GFS was tested and compared with other state-of-the
+art methods, including  Fisher score, and proved to perform better in
+applications like face recognition  and number recognition. For face
+recognition, GFS selected features  (in this case pixels) with an asymmetric
+distribution over the whole  face-area, while fisher score selected many pixels
+which where clustered in  non-face areas. \cite{Gu:12}
   
