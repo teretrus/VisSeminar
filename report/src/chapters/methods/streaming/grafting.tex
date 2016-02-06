@@ -1,0 +1,15 @@
+\subsubsection{The Grafting Algorithm}
+\label{sec:methods.streaming.grafting}
+
+% Author: Flo
+
+This algorithm uses a newly generated feature, and checks wheter to add it or
+not. In the same step existing features are evaluated and might be removed.
+
+The Grafting Algorithm extends the lasso method and uses its term to decide
+wheter or not to take a feature. If adds a term to set weights to zero if their
+mean classification error is too high in relation to the regularization penalty.
+
+This evaluation is done for every feature once a new feature is added.
+Features with a zero-value weight are then eliminated
+(\cite{perkins2003online}).

@@ -1,0 +1,16 @@
+\subsubsection{The Alpha-investing Algorithm}
+\label{sec:methods.streaming.alpha_investing}
+
+% Author: Flo
+
+This algorithm takes a new feature and assigns an initial $\alpha$-value to it.
+All $\alpha$-values are stored and represent a feature. Everytime a new feature is
+added, a threshold is updated, based on a socalled p-value
+(\cite{zhou2005learning}) and based on the $\alpha$-values of all selected
+features. Then this threshold is used to select which features stay in the
+selected set an which do not.
+
+The basic idea is to have a certain wealth (the threshold) that can be spent on
+features. Everytime a new feature is included, wealth needs to be spent, and the
+possibility of another feature being unselected is higher. If another feature is
+then unselected, the wealth increases and can be spent on new features again.
