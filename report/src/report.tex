@@ -6,6 +6,13 @@
 \usepackage{lipsum}
 \usepackage[table]{xcolor}
 \usepackage{graphicx}
+\usepackage{titlesec}
+
+\titleformat*{\section}{\fontsize{16}{18} \selectfont \bfseries}
+\titleformat*{\subsection}{\fontsize{14}{16} \selectfont \bfseries}
+\titleformat*{\subsubsection}{\fontsize{12}{14} \selectfont \bfseries}
+\titleformat*{\paragraph}{\fontsize{10}{12} \selectfont \bfseries}
+\titleformat*{\subparagraph}{\fontsize{10}{12} \selectfont \bfseries}
 
 
 \TOGonlineid{45678}
@@ -18,9 +25,12 @@
 \TOGcodeURL{}
 
 \title{
-{\large Seminar aus Computer Vision und Mustererkennung } 
+{\LARGE Computer Vision and Pattern Recognition Seminar } 
  \\ \medskip
- {Dynamic Feature Selection \\ for Media Classification}} 
+ {\fontsize{36}{48} \selectfont 
+  Dynamic Feature Selection
+  \\ \medskip 
+   for Media Classification}}
 
 \author{Silvana Podaras\thanks{e-mail:spodaras@cg.tuwien.ac.at}\\Florian Schober\thanks{e-mail:fschober@cg.tuwien.ac.at}}
 \pdfauthor{Silvana Podaras and Florian Schober}
@@ -28,6 +38,9 @@
 \keywords{feature, reduction, selection, dimensionality, automatical, media}
 
 \begin{document}
+
+\fontsize{10}{12} \selectfont
+\renewcommand{\abstractname}{\fontsize{10}{12} \selectfont Abstract}
  
 \maketitle
 \copyrightspace
@@ -41,7 +54,8 @@
 \input{chapters/introduction}
 \input{chapters/methods}
 \input{chapters/discussion}
-\input{chapters/conclusion}
+
+\fontsize{8}{10} \selectfont
 
 \bibliographystyle{acmsiggraph}
 \bibliography{bib/appendix}
