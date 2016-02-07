@@ -3,22 +3,29 @@
 
 % Author: Flo
 
-Three types of features can be distinguished: 
+Although it is hard to make a strict classification of feature-types,
+in general, three three different types of features can be distinguished: 
+
 \begin{itemize}
-  \item Flat Feature methods
-  \item Structured Feature methods
-  \item Streaming Feature methods
+  \item Flat Features
+  \item Structured Features
+  \item Streaming Features
 \end{itemize}
 
-The decision, which method should be taken, is dependent on the nature of the
-features. The distinction between Flat Feature methods and Structured Feature
-methods is not easy to make. Flat Feature methods take no realtionship of
-features into account, whereas Structured Feature methods take a given
-relationship and use it to preserve sturctural information.
+The problem with making a clear classification is that the features themselves,
+being regarded simply as numerical data gained by making measurements, have no
+structure per se. In fact, the same set of features can be  regarded as flat or 
+structured, for example. Dependent on how the underlying problem is modeled,
+a certain structure can be assumed. 
 
-Since it is not always clear which feature is related to which other feature,
-structures are hard to be defined and might also give worse results if assumed
-wrong. In general, if the structure tends to represent the correct realtionships
+The decision, which method should be taken, is therefore dependent on the assumed 
+properties of the features. Flat Feature methods take no relationship of
+features into account, whereas Structured Feature methods take a given
+relationship and use it to preserve structural information.
+
+Since it is not always clear how one feature is related to the other features,
+structures are sometimes hard to define and might also give worse results if assumed
+wrong. On the other hand, if the structure tends to represent the correct relationships
 of the given features, Structured Feature methods tend to outperform Flat
 Feature methods (\cite{Tang:14}).
 
